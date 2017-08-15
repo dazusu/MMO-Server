@@ -72,14 +72,19 @@ namespace MMO.Networking
                 IpAddress = ipEndPoint.Address.ToString()
             };
 
-            switch (type)
+            switch(type)
             {
-                case PacketType.Login: container.Packet = JObject.Parse(v).ToObject<LoginPacket>();
+                case PacketType.Login:
+                    container.Packet = JObject.Parse(v).ToObject<LoginPacket>();
                     break;
-                case PacketType.MoveToDest: container.Packet = JObject.Parse(v).ToObject<MoveToDestPacket>();
+                case PacketType.MoveToDest:
+                    container.Packet = JObject.Parse(v).ToObject<MoveToDestPacket>();
                     break;
                 case PacketType.Move:
                     container.Packet = JObject.Parse(v).ToObject<MovePacket>();
+                    break;
+                case PacketType.Heading:
+                    container.Packet = JObject.Parse(v).ToObject<HeadingPacket>();
                     break;
             }
 

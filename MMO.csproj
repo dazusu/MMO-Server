@@ -65,6 +65,7 @@
     <Compile Include="MathUtilities.cs" />
     <Compile Include="Networking\Server.cs" />
     <Compile Include="Packets\EntityUpdatePacket.cs" />
+    <Compile Include="Packets\HeadingPacket.cs" />
     <Compile Include="Packets\IPacket.cs" />
     <Compile Include="Packets\LoginPacket.cs" />
     <Compile Include="Packets\MovePacket.cs" />

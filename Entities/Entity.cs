@@ -23,7 +23,6 @@ namespace MMO.Entities
         protected bool _update = false;
         protected int _speed;
         protected EntityUpdateFlag _updateFlag;
-        protected EntityHeading _heading;
         #endregion
 
         #region Properties
@@ -60,10 +59,10 @@ namespace MMO.Entities
                 X = 1,
                 Y = 1,
                 Z = 1,
-                Area = AreaName.UngurForest
+                Area = AreaName.UngurForest,
+                Heading = EntityHeading.None
             };
 
-            _heading = EntityHeading.None;
         }
         #endregion
 
@@ -71,6 +70,10 @@ namespace MMO.Entities
 
         public abstract void ProcessPacket(IPacket packet);
         public abstract EntityUpdatePacket GetEntityUpdatePacket();
+        public virtual void RemoveUpdateFlag(EntityUpdateFlag flag)
+        {
+            _updateFlag &= ~flag;
+        }
 
         #endregion
 

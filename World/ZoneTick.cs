@@ -33,6 +33,8 @@ namespace MMO.World
 
                     bulks.Add(bulk);
                 }
+
+                zone.Players.ForEach(x => x.RemoveUpdateFlag(EntityUpdateFlag.EntityUpdate));
             }
 
             return bulks;

@@ -49,5 +49,10 @@ namespace MMO.Entities
         /// Intended Destination Z
         /// </summary>
         public int DestZ { get; set; }
+
+        /// <summary>
+        /// The intention of the entity to keep moving in this direction.
+        /// </summary>
+        public EntityHeading Heading { get; set; }
     }
 }

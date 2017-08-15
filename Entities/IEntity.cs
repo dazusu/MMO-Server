@@ -20,5 +20,6 @@ namespace MMO.Entities
         EntityLocation Location { get; }
         void ProcessPacket(IPacket packet);
         EntityUpdatePacket GetEntityUpdatePacket();
+        void RemoveUpdateFlag(EntityUpdateFlag flag);
     }
 }

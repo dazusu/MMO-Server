@@ -20,6 +20,7 @@ namespace MMO.Packets
         Logout = 1,
         MoveToDest = 2,
         Move = 3,
-        EntityUpdate = 4
+        EntityUpdate = 4,
+        Heading = 5
     }
 }

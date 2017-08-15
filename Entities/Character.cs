@@ -65,6 +65,40 @@ namespace MMO.Entities
                 _type = EntityType.PlayerCharacter;
                 _status = EntityStatus.Loading;
             }
+            else if(id == 3)
+            {
+                Name = "Jen";
+                _id = 3;
+                _location = new EntityLocation()
+                {
+                    Instance = 0,
+                    X = 3,
+                    Y = 4,
+                    Z = 1,
+                    Area = AreaName.UngurForest
+                };
+                _stats = new EntityStats(1, 1, 1, 1, 1, 1, 1);
+                _existing = true;
+                _type = EntityType.PlayerCharacter;
+                _status = EntityStatus.Loading;
+            }
+            else if(id == 4)
+            {
+                Name = "Mike";
+                _id = 4;
+                _location = new EntityLocation()
+                {
+                    Instance = 0,
+                    X = 3,
+                    Y = 4,
+                    Z = 1,
+                    Area = AreaName.UngurForest
+                };
+                _stats = new EntityStats(1, 1, 1, 1, 1, 1, 1);
+                _existing = true;
+                _type = EntityType.PlayerCharacter;
+                _status = EntityStatus.Loading;
+            }
         }
 
 
@@ -87,6 +121,9 @@ namespace MMO.Entities
                     break;
                 case PacketType.Move:
                     HandleMovePacket(packet);
+                    break;
+                case PacketType.Heading:
+                    HandleHeadingPacket(packet);
                     break;
                 default:
                     Debug.WriteError($"PacketType {packet.PacketType.ToString()} not supported.");
@@ -128,14 +165,20 @@ namespace MMO.Entities
 
             _updateFlag |= EntityUpdateFlag.EntityUpdate;
         }
+
+        private void HandleHeadingPacket(IPacket packet)
+        {
+            HeadingPacket heading = (HeadingPacket) packet;
+            Location.Heading = heading.Heading;
+
+            _updateFlag |= EntityUpdateFlag.EntityUpdate;
+        }
         #endregion
 
         #region Tick Packets
 
         public override EntityUpdatePacket GetEntityUpdatePacket()
         {
-            _updateFlag &= ~EntityUpdateFlag.EntityUpdate;
-
             return new EntityUpdatePacket()
             {
                 Id = Id,
