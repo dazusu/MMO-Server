@@ -20,6 +20,7 @@ namespace MMO.Packets
         public int CurrentX;
         public int CurrentY;
         public int CurrentZ;
+        public EntityHeading Heading;
 
         public EntityUpdatePacket()
         {

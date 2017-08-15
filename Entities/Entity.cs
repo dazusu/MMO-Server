@@ -23,6 +23,7 @@ namespace MMO.Entities
         protected bool _update = false;
         protected int _speed;
         protected EntityUpdateFlag _updateFlag;
+        protected EntityHeading _heading;
         #endregion
 
         #region Properties
@@ -41,6 +42,7 @@ namespace MMO.Entities
         protected Entity()
         {
             _type = EntityType.Unassigned;
+
             _stats = new EntityStats()
             {
                 Str = 1,
@@ -51,6 +53,7 @@ namespace MMO.Entities
                 Int = 1,
                 Chr = 1
             };
+
             _location = new EntityLocation()
             {
                 Instance = 0,
@@ -59,6 +62,8 @@ namespace MMO.Entities
                 Z = 1,
                 Area = AreaName.UngurForest
             };
+
+            _heading = EntityHeading.None;
         }
         #endregion
 

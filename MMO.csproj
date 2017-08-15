@@ -54,6 +54,7 @@
     <Compile Include="Entities\Character.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\EntityHeading.cs" />
     <Compile Include="Entities\EntityLocation.cs" />
     <Compile Include="Entities\EntityStats.cs" />
     <Compile Include="Entities\EntityStatus.cs" />
