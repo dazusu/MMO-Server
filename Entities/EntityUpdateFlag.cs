@@ -10,6 +10,7 @@ namespace MMO.Entities
     public enum EntityUpdateFlag
     {
         None,
-        EntityUpdate
+        EntityUpdate,
+        EntityMove
     }
 }

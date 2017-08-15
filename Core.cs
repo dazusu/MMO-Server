@@ -174,13 +174,23 @@ namespace MMO
                     // Add character to zone entity list.
                     _zones.Single(x => x.Area == character.Location.Area).PlayerZoneIn(character);
 
+                    BulkPacket bulk = new BulkPacket(new List<IPacket>() { new ProfilePacket()
+                    {
+                        EntityId = character.Id,
+                        Name = character.Name,
+                        CurrentX = character.Location.X,
+                        CurrentY = character.Location.Y,
+                        CurrentZ = character.Location.Z,
+                        Zone = character.Location.Area
+                    } }, container.ConnectionId);
+                
+                    Server.PushPacket(bulk);
                 }
             }
-            else
-            {
-                // Send to Character
-                _players.Single(c => c.ConnectionId == container.ConnectionId).ProcessPacket(container.Packet);
-            }
+
+            // Send to Character
+            _players.Single(c => c.ConnectionId == container.ConnectionId).ProcessPacket(container.Packet);
+
         }
 
         /// <summary>

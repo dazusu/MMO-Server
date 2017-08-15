@@ -12,7 +12,6 @@ namespace MMO.Packets
     /// </summary>
     public class EntityUpdatePacket : Packet
     {
-        public int Id;
         public int Index;
         public string Name;
         public EntityType Type;

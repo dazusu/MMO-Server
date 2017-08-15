@@ -72,6 +72,7 @@
     <Compile Include="Packets\MoveToDestPacket.cs" />
     <Compile Include="Packets\Packet.cs" />
     <Compile Include="CoreUtilities.cs" />
+    <Compile Include="Packets\ProfilePacket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="World\AreaName.cs" />
     <Compile Include="World\Zone.cs" />

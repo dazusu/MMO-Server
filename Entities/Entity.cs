@@ -70,11 +70,11 @@ namespace MMO.Entities
 
         public abstract void ProcessPacket(IPacket packet);
         public abstract EntityUpdatePacket GetEntityUpdatePacket();
+        public abstract MovePacket GetEntityMovePacket();
         public virtual void RemoveUpdateFlag(EntityUpdateFlag flag)
         {
             _updateFlag &= ~flag;
         }
-
         #endregion
 
 

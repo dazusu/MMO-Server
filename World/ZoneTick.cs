@@ -52,11 +52,15 @@ namespace MMO.World
                 .Where(x => x.Id != character.Id && x.EntityUpdateFlag.HasFlag(EntityUpdateFlag.EntityUpdate) && MathUtilities.Distance(character.Location, x.Location) < Config.PlayerUpdateDistance)
                 .Select(y => y.GetEntityUpdatePacket()).ToList());
 
+            List<IPacket> playerMovePackets = new List<IPacket>(zone.Players
+                .Where(x => x.Id != character.Id && x.EntityUpdateFlag.HasFlag(EntityUpdateFlag.EntityMove) && MathUtilities.Distance(character.Location, x.Location) < Config.PlayerUpdateDistance)
+                .Select(y => y.GetEntityMovePacket()).ToList());
+
             List<IPacket> enemyUpdatePackets = new List<IPacket>(zone.Enemies
                 .Where(x => x.EntityUpdateFlag.HasFlag(EntityUpdateFlag.EntityUpdate) && MathUtilities.Distance(character.Location, x.Location) < Config.PlayerUpdateDistance)
                 .Select(y => y.GetEntityUpdatePacket()).ToList());
 
-            var r = playerUpdatePackets.Concat(enemyUpdatePackets);
+            var r = playerUpdatePackets.Concat(enemyUpdatePackets).Concat(playerMovePackets);
 
             return r.ToList();
         }

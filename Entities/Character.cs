@@ -39,7 +39,7 @@ namespace MMO.Entities
                 {
                     Instance = 0,
                     X = 3,
-                    Y = 5,
+                    Y = 3,
                     Z = 1,
                     Area = AreaName.UngurForest
                 };
@@ -55,8 +55,8 @@ namespace MMO.Entities
                 _location = new EntityLocation()
                 {
                     Instance = 0,
-                    X = 3,
-                    Y = 4,
+                    X = 5,
+                    Y = 5,
                     Z = 1,
                     Area = AreaName.UngurForest
                 };
@@ -181,15 +181,27 @@ namespace MMO.Entities
         {
             return new EntityUpdatePacket()
             {
-                Id = Id,
                 Name = Name,
                 Type = Type,
                 Status = Status,
                 CurrentX = Location.X,
                 CurrentY = Location.Y,
                 CurrentZ = Location.Z,
+                EntityId = Id
             };
         }
+
+        public override MovePacket GetEntityMovePacket()
+        {
+            return new MovePacket()
+            {
+                CurrentX = Location.X,
+                CurrentY = Location.Y,
+                CurrentZ = Location.Z,
+                EntityId = Id
+            };
+        }
+
         #endregion
 
 

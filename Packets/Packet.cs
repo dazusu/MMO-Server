@@ -21,6 +21,7 @@ namespace MMO.Packets
         MoveToDest = 2,
         Move = 3,
         EntityUpdate = 4,
-        Heading = 5
+        Heading = 5,
+        Profile = 6
     }
 }

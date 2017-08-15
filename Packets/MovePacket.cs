@@ -7,11 +7,16 @@ using MMO.Entities;
 
 namespace MMO.Packets
 {
-    class MovePacket : Packet
+    public class MovePacket : Packet
     {
         public int CurrentX { get; set; }
         public int CurrentY { get; set; }
         public int CurrentZ { get; set; }
         public EntityHeading Heading { get; set; }
+
+        public MovePacket()
+        {
+            PacketType = PacketType.Move;
+        }
     }
 }

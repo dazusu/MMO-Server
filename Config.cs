@@ -17,10 +17,10 @@ namespace MMO
         /// <summary>
         /// How often the server should process packets (default: 400ms)
         /// </summary>
-        public static int TickTime = 400; //ffxi - 416;
+        public static int TickTime = 400;
 
-        public static int PlayerUpdateDistance = 6;
-        public static int NpcUpdateDistance = 6;
+        public static int PlayerUpdateDistance = 20;
+        public static int NpcUpdateDistance = 20;
 
         public static DebugLevel DebugLevel = DebugLevel.Information | DebugLevel.Packet | DebugLevel.Warning | DebugLevel.Verbose;
 

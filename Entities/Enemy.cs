@@ -16,11 +16,9 @@ namespace MMO.Entities
 
         public override EntityUpdatePacket GetEntityUpdatePacket()
         {
-            _updateFlag &= ~EntityUpdateFlag.EntityUpdate;
-
             return new EntityUpdatePacket()
             {
-                Id = Id,
+                EntityId = Id,
                 Name = Name,
                 Type = Type,
                 Status = Status,
@@ -28,6 +26,11 @@ namespace MMO.Entities
                 CurrentY = Location.Y,
                 CurrentZ = Location.Z,
             };
+        }
+
+        public override MovePacket GetEntityMovePacket()
+        {
+            throw new NotImplementedException();
         }
     }
 }

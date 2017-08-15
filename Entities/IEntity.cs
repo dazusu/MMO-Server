@@ -21,5 +21,6 @@ namespace MMO.Entities
         void ProcessPacket(IPacket packet);
         EntityUpdatePacket GetEntityUpdatePacket();
         void RemoveUpdateFlag(EntityUpdateFlag flag);
+        MovePacket GetEntityMovePacket();
     }
 }
